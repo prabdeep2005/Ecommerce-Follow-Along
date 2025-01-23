@@ -1,72 +1,73 @@
-# MERN Stack E-Commerce Application
+# -Ecommerce-Follow-Along
 
-Welcome to the development of a comprehensive **E-Commerce Application** using the MERN stack (MongoDB, Express.js, React.js, and Node.js). This project is designed to provide hands-on experience in building modern, scalable, and secure web applications.
+# Project Name
 
----
+ECOM WEBSITE
 
-## 🚀 Project Overview
+## Project Description
 
-This project focuses on creating an end-to-end e-commerce platform with features like secure authentication, product management, and order handling. Through this, you'll gain valuable insights into full-stack development using the MERN stack, combining frontend and backend technologies seamlessly.
+This project is an e-commerce website built using the MERN stack. The primary objective is to create a fully functional online store that allows users to browse and purchase products securely
 
----
+## Key Features
 
-## 🛠️ Key Features
+- MERN Stack: The project will be built using the MERN stack (MongoDB, Express.js, React, Node.js).
+- REST API Creation: Learn to build scalable APIs through mentor-guided sessions.
+- Authentication: Implement secure login and registration functionalities.
+- Database Schema Design: Explore how to create structured data models using MongoDB.
+- Backend Development: Set up robust server-side logic with Node.js and Express.
+- Frontend Development: Use React to build an interactive and dynamic user interface.
 
-1. **MERN Stack Integration:**
-   - Use MongoDB for a flexible and scalable NoSQL database.
-   - Build a server with Node.js and Express.js to handle business logic.
-   - Develop an interactive user interface with React.js.
-   
-2. **RESTful API Development:**
-   - Design and implement APIs for key functionalities such as:
-     - **User Authentication**: Enable registration and login.
-     - **Product Management**: Add, update, and view product details.
-     - **Order Processing**: Manage customer orders and status.
+## Milestone 1: Project Overview
 
-3. **Secure Authentication:**
-   - Implement robust user authentication to safeguard sensitive data.
+In the first milestone, we covered the following key aspects of the project:
 
-4. **Database Schema Design:**
-   - Define and implement structured data models using MongoDB.
+1. set up project in git hub
+2. also added a README.md file to update about the project changes as we move further
 
-5. **Frontend with React.js:**
-   - Leverage React.js to create a dynamic, user-friendly interface.
+## Milestone 2: Further
 
----
+In the second milestone, we covered the following key aspects of the project:
 
-## 🎯 Learning Goals
+1. created a structured folder hierarchy for project
+2. set up react for frontend and nodejs for backend 
+3. configured the tailwind css for styling 
+4. Build the login page
 
-By working on this project, you will:
+## Milestone 3: Further
 
-- Understand the architecture of a full-stack web application.
-- Gain practical experience in setting up and configuring a MERN stack environment.
-- Learn to create, test, and deploy scalable REST APIs.
-- Enhance your skills in secure authentication and data handling.
-- Build a seamless integration between frontend and backend systems.
+In the third milestone, we covered the following key aspects of the project:
 
----
+1. used nodejs and express to set up backend
+2. established the connection with mongoDB to store the data of user efficiently    
 
-## 🌟 Session Highlights
+## Milestone 4: Further
 
-- **Technology Overview:** Dive deep into the MERN stack and understand its components.
-- **Live Demo:** See a functioning e-commerce application in action to visualize the end goal.
-- **Hands-On Learning:** Begin setting up your project environment and repository.
+In the fourth milestone, we covered the following key aspects of the project:
 
----
+1. created a usermodel with name, password and emailin in model folder
+2. also used multer to upload multimedia like images
 
-## 📋 Submission Guidelines
+## Milestone 5: Further
 
-1. Ensure your project repository is pushed to GitHub and publicly accessible.
-2. Include this README file to describe the project.
-3. Share the GitHub repository link as instructed.
+In the fifth milestone, we covered the following key aspects of the project:
 
----
+1. Created frontend ui with signup page
+2. implemented form validation
 
-## 🔜 What's Next?
+## Milestone 6: Further
 
-In upcoming sessions, you will:
+In the sixth milestone, we covered the following key aspects of the project:
 
-- Set up the development environment with all required tools and dependencies.
-- Understand the interaction between the frontend and backend through APIs.
-- Begin developing your application by creating a foundational server.
+1. Encrypted passowrd using bcryptjs library
+2. also stored user data in databse with password being encrypted
 
+## Milestone 7: Further
+In the seventh milestone, we covered the following key aspects of the project:
+
+1. created login endpoint accepting user credential like name and password
+2. used bcrypt to hash password and finally comparing the credentials with databse and logging user
+
+## Milestone 8: Further
+In the eight milestone, we covered the following key aspects of the project:
+
+1. Created a card component to display all products with image,name and price

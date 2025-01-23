@@ -1,7 +1,6 @@
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { User } from '../models/user.model.js';
 
-
 const generateAccessandRefreshToken = async(userId) => {
     try{
         const user = await User.findById(userId);
