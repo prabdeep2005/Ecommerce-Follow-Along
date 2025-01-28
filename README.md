@@ -71,3 +71,14 @@ In the seventh milestone, we covered the following key aspects of the project:
 In the eight milestone, we covered the following key aspects of the project:
 
 1. Created a card component to display all products with image,name and price
+
+
+## Milestone 9: Product Input Form
+
+*  **Product Details Form:** 
+
+Developed a comprehensive form to collect all necessary product information.
+
+*  **Multiple Image Upload:**
+
+Implemented functionality for uploading multiple images for each product.
