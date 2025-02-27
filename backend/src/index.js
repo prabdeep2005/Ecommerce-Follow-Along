@@ -1,37 +1,54 @@
-import express, { urlencoded } from "express";
-import dotenv from "dotenv/config";
-import http from "http";
-import connectDB from "./config/db.js";
-import UserModel from "./model/user.model.js";
+import express from 'express';
+import dotenv from 'dotenv';
+import http from 'http';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import connectDB from './config/db.js';
+dotenv.config();
+
+
 
 const app = express();
 const server = http.createServer(app);
 
-app.use(express.json());
+// Middleware
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from this origin
+    credentials: true
+}));
+app.use(express.json({ limit: '16kb' }));
+app.use(express.urlencoded({ extended: true, limit: '16kb' }));
+app.use(express.static("public"));
+app.use(cookieParser());
 
-app.get("/prab", (req, res) => {
-  res.send("hi");
-  const response = req.body();
-  console.log(response);
+
+
+
+// Route imports
+import userRouter from './routes/user.route.js';
+import productRouter from './routes/product.route.js';
+import cartRouter from './routes/cart.route.js';
+
+// Routes
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/cart", cartRouter);
+
+// Default route
+app.get('/', (req, res) => {
+    res.send('API is running....');
 });
 
-//user create
-app.post("/create", async (req, res) => {
-  let { name, email, password } = req.body;
 
-  try {
-    const createuser = new UserModel({ name, password, email });
-    await createuser.save();
 
-    res.status(201).json({ message: "User created successfully" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Failed to create user", error });
-  }
-});
-
-connectDB();
-
-server.listen(process.env.PORT, () => {
-  console.log("running on 7000");
+// Database connection and server start
+connectDB()
+.then(() => {
+    server.listen(process.env.PORT || 8000, () => {
+        console.log(`⚙️  Server running on port ${process.env.PORT}`);
+    });
+})
+.catch((error) => {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
 });

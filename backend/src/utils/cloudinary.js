@@ -1,27 +1,54 @@
 import { v2 as cloudinary } from "cloudinary";
-import fs from "fs";
+import fs from 'fs';
+import dotenv from 'dotenv';
 
-// Configuration
-cloudinary.config({ 
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
-    api_key: process.env.CLOUDINARY_API_KEY, 
+dotenv.config();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const uploadOnCloudinary = async (localFilePath) => {
+// In cloudinary.js
+const uploadOnCloudinary = async (file) => {
     try {
-        if (!localFilePath) return null;
-        const response = await cloudinary.uploader.upload(localFilePath, {
-            resource_type: "auto",
+        if (!file) {
+            throw new Error("No file provided");
+        }
+        
+        console.log("Uploading file to Cloudinary:", file);
+        
+        const result = await cloudinary.uploader.upload(file, {
+            resource_type: "auto"
         });
-        console.log("Image uploaded successfully", response.url);
-        return response.url;
+
+        // Validate Cloudinary response
+        if (!result || !result.public_id || !result.secure_url) {
+            throw new Error("Invalid response from Cloudinary");
+        }
+
+        const uploadedFile = {
+            public_id: result.public_id,
+            url: result.secure_url
+        };
+
+        console.log("File uploaded successfully:", uploadedFile);
+        return uploadedFile;
+
     } catch (error) {
-        console.error("Error uploading image to Cloudinary", error);
-        throw error;
+        console.error("Cloudinary upload error:", error);
+        throw error; // Propagate error instead of returning null
     } finally {
-        // Clean up the local file after upload
-        fs.unlinkSync(localFilePath);
+        // Clean up temp file
+        if (file) {
+            try {
+                fs.unlinkSync(file);
+                console.log("Temporary file deleted:", file);
+            } catch (err) {
+                console.error("Error deleting temp file:", err);
+            }
+        }
     }
 };
 
