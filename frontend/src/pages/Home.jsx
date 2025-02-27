@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import ProductGrid from '../components/ProductGrid';
+import Footer from '../components/Footer';
 
-const Home = () => {
+export default function HomePage() {
   return (
-    <div className="">
-        <h1>This is Home</h1>
+    <div>
+      <Header />
+      <Hero />
+      <ProductGrid />
+      <Footer />
     </div>
-  )
+  );
 }
-
-export default Home
